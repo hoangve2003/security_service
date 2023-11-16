@@ -1,0 +1,39 @@
+Test với postman api:
+
+Đăng ký : http://localhost:8081/api/v1/users/signUp 
+	Method: Post 
+	Request: 	{
+    			"name":"",
+    			"email":"",
+    			"password": "",
+    			"roles": ""
+		      	}
+	Body: Kết quả
+
+Đăng  nhập : http://localhost:8081/api/v1/users/login 
+(Mỗi tài khoản chỉ được phép đăng nhập 1 lần. Nếu muốn lấy token khác thì dùng refresh token)
+	Method: Post
+	Request: 	{
+    			"username":"",
+    			"password":""
+		      	}
+	Body: 	{
+    		"accessToken": ""
+ 		"token": ""
+		}
+	(accessToken là  Bearer jwt, token là Refresh token)
+
+Refesh token: http://localhost:8081/api/v1/users/refreshToken
+
+Method: Post
+
+Request body: 	{
+    		"token":"" (mã "token" ở đăng nhập)
+		}
+
+Get user: http://localhost:8081/api/v1/users/get?username=
+Lưu ý: Đăng nhập trước khi gửi request
+
+Method: GET
+Request param: username
+

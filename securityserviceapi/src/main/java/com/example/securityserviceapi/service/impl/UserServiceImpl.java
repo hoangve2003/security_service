@@ -2,10 +2,13 @@ package com.example.securityserviceapi.service.impl;
 
 import com.example.securityserviceapi.entity.UserInfo;
 import com.example.securityserviceapi.exception.ExistsException;
+import com.example.securityserviceapi.exception.NotFoundException;
 import com.example.securityserviceapi.repository.UserInfoRepository;
 import com.example.securityserviceapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +36,12 @@ public class UserServiceImpl implements UserService {
         userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
         repository.save(userInfo);
         return ResponseEntity.ok(userInfo);
+    }
+
+
+    public ResponseEntity<UserInfo> getUser(String username){
+        UserInfo user = repository.findByName(username).orElseThrow(() -> new NotFoundException("User is not found"));
+
+        return ResponseEntity.ok(user);
     }
 }

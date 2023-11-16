@@ -33,6 +33,12 @@ public class UserController {
         return userService.addUser(userInfo);
     }
 
+
+    @GetMapping("/get")
+    public ResponseEntity<?> getUser (@RequestParam String username){
+        return userService.getUser(username);
+    }
+
     /**
      * Controller method to handle user authentication and token retrieval.
      *

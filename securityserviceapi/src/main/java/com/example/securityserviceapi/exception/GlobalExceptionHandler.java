@@ -29,6 +29,14 @@ public class GlobalExceptionHandler {
     private MessageSource msgSource;
 
 
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Object> handlerExistingException(NotFoundException ex) {
+        LOGGER.debug("An exception occurred, which will cause a {} response", ex.getMessage() + " " + Arrays.toString(ex.getStackTrace()), ex);
+        LOGGER.info("An exception occurred, which will cause a {} response", ex.getMessage() + " " + Arrays.toString(ex.getStackTrace()), ex);
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(ExistsException.class)
     public ResponseEntity<Object> handlerExistingException(ExistsException ex) {
         LOGGER.debug("An exception occurred, which will cause a {} response", ex.getMessage() + " " + Arrays.toString(ex.getStackTrace()), ex);
