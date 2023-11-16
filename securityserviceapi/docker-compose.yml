@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=21072003
+      - MYSQL_DATABASE=securtity_jwt
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=123456
+  securityserviceapi:
+    image: security-springboot
+    ports:
+      - 8081:8080
+    depends_on:
+      - mysql
