@@ -1,4 +1,7 @@
-Test với postman api:
+Test với postman 
+Link: https://app.getpostman.com/join-team?invite_code=2b4317a2fcee8a7e6eeafff640fd026b&target_code=0dcfb949ad5a5e419cd0103ffcffce77
+
+api: 
 
 Đăng ký : http://localhost:8081/api/v1/users/signUp 
 	Method: Post 
@@ -24,9 +27,7 @@ Test với postman api:
 	(accessToken là  Bearer jwt, token là Refresh token)
 
 Refesh token: http://localhost:8081/api/v1/users/refreshToken
-
 Method: Post
-
 Request body: 	{
     		"token":"" (mã "token" ở đăng nhập)
 		}
@@ -36,4 +37,5 @@ Lưu ý: Đăng nhập trước khi gửi request
 
 Method: GET
 Request param: username
+
 
