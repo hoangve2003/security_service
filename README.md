@@ -1,5 +1,6 @@
 # Hướng dẫn sử dụng API
 - URL POSTMAN: https://app.getpostman.com/join-team?invite_code=2b4317a2fcee8a7e6eeafff640fd026b&target_code=0dcfb949ad5a5e419cd0103ffcffce77
+- workspace: Security-service
 ## Đăng ký (Sign Up)
 
 - Method: POST
