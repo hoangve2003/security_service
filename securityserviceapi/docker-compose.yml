@@ -22,7 +22,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 21072003
       MYSQL_DATABASE: security_jwt
-      MYSQL_USER: root
-      MYSQL_PASSWORD: 21072003
     ports:
       - "3307:3306"
